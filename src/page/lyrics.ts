@@ -413,7 +413,7 @@ export function parseLyrics(lyricStr: string, options: ParseLyricsOptions = {}) 
       if (textIndex > -1) {
         text = matchResult.splice(textIndex, 1)[0];
         text = capitalize(normalize(text, false));
-        text = sify(text).replace(/\.|,|\?|!|;$/u, '');
+        text = text.replace(/\.|,|\?|!|;$/u, ''); // don't sify lyric
       }
       if (!matchResult.length && options.keepPlainText) {
         return [new Line(text)];
